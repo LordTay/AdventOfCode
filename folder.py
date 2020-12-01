@@ -1,6 +1,6 @@
 import os
 for i in range(1,32):
-    path = "./Day"+str(i)
+    path = "./Day%02d"%i
     if not os.path.exists(path):
         os.mkdir(path)
     file_path = path+"/solution.py"
