@@ -11,14 +11,18 @@ except Exception as e:
 
 l = []
 d = {}
-for i in f:
-    d[int(i)]=i
-    l.append(int(i))
-l.sort()
 
+for i in f:
+    l.append(int(i))
+
+for i in l:
+    for j in l:
+        d[i+j] = i,j
+        
+l.sort()
 
 for i in l:
     if (target-i) in d:
-        print("a = ",i,", b = ",(target-i))
-        print("solution = ", i*(target-i))
-        break
+        print("a = ",i,", b = ",d[(target-i)][0],", c = ",d[(target-i)][1])
+        print("solution = ", i*d[(target-i)][0]*d[(target-i)][1])
+        break;
