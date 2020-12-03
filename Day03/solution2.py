@@ -26,6 +26,7 @@ for j in range(0,len(xstep)):
         x = (x + xstep[j]) % n
 
 print(count)
+
 result=1
 for m in count:
     result *= m
