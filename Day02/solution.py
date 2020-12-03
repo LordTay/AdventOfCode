@@ -20,11 +20,8 @@ l = []
 
 string = ""
 for i in f:
-    string = i
-    pw = string[string.index(":")+1:]
-    letter = string[string.index(":")-1]
-    amount = string[:string.index(":")-2].split("-")
-
+    string, pw, letter, amount = i, string[string.index(":")+1:],string[string.index(":")-1],string[:string.index(":")-2].split("-")
+    
     l.append(Password(pw,letter,(int(amount[0]),int(amount[1]))))
 n_valid_passwords = 0
 for p in l:
