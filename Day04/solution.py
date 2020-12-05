@@ -23,10 +23,9 @@ with open(file_path,"r") as f:
 
 for pp_data in pp_data_all:
     l.append(Passport(pp_data))
-    
+
 for pp in l:   
     if pp.isValid(): count += 1
-
       
 print(count)
 print("time =",time.time() - t1) 
