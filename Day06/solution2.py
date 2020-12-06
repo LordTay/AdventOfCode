@@ -6,11 +6,13 @@ file_path = "./input1"
 t1 = t.time()
 
 with open(file_path,"r") as f:
-    groups = [group.replace("\n","") for group in f.read().split("\n\n")]
-    
+    groups = [group.split("\n") for group in f.read().split("\n\n")]
 l=[]
+
 for group in groups:
-        l.append(set([c for c in group]))
+    intersect = set(group[0]).intersection(*group)
+    if intersect:
+        l.append(intersect)
 
 print(sum(len(group) for group in l))
 
