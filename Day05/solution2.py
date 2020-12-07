@@ -1,7 +1,9 @@
-#Solution of Day5
+#Solution Part2 of Day5
 
-import time as t
-import builtins
+# Time:
+# 1.5ms
+
+import time
 
 def parsebp(boardpass):
     parsed_bp = boardpass.translate(t_dict)
@@ -14,13 +16,11 @@ def findMissing(seats):
                                                 and seat-1 not in missingseats]
 
 file_path = "./input1"
-         
-t_dict = str.maketrans("FBLR","0101")
-
-t1 = t.time()
-
 seats=[]
 count = 0
+
+t1 = time.time()     
+t_dict = str.maketrans("FBLR","0101")
 
 with open(file_path,"r") as f:
     boardpass_all = f.read().split("\n")
@@ -28,7 +28,10 @@ with open(file_path,"r") as f:
 for boardpass in boardpass_all:
     seats.append(parsebp(boardpass))
 
-max_seatID = max(seats)
-print(findMissing(seats))
+print(findMissing(seats)[0])
 
-print("time =",t.time() - t1)
+t2 = time.time()
+
+print("time =",t2 - t1)
+
+#prints: 594

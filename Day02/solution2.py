@@ -1,6 +1,12 @@
-#Solution of Day2
+#Solution Part2 of Day2
+
+# Time:
+# 4.5ms
+
+import time
 
 file_path = "./input1"
+l = []
 
 class Password:
     def __init__(self, password, letter, amount):
@@ -10,9 +16,8 @@ class Password:
     def isValid(self):
         return (self.password[self.amount[0]-1]==self.letter) != (self.password[self.amount[1]-1]==self.letter)
 
-l = []
-string = ""
 
+t1 = time.time()
 with open(file_path,"r") as f:
     for i in f:
         string = i
@@ -25,4 +30,9 @@ for p in l:
     if p.isValid(): 
         n_valid_passwords+=1
 
+t2 = time.time()
+print("time =", t2 - t1)
+
 print(n_valid_passwords)
+
+#Output: 388

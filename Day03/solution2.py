@@ -1,4 +1,9 @@
-#Solution of Day3
+#Solution Part2 of Day3
+
+# Time:
+# 335ms
+
+import time
 
 file_path = "./input2"
 
@@ -6,6 +11,7 @@ l = []
 count = [0,0,0,0,0]
 x = 0
 
+t1 = time.time()
 with open(file_path,"r") as f:
     for i in f:
         l.append(i[:-1])
@@ -28,4 +34,12 @@ result=1
 for m in count:
     result *= m
 
+t2 = time.time()
+print("time =", t2 - t1)
+
 print(result)
+
+'''Output:
+[30334, 30384, 30319, 30323, 15134]
+12823760499550117645248
+'''

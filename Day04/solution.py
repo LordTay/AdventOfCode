@@ -1,11 +1,16 @@
-#Solution of Day4
+#Solution Part1 of Day4
+
+# Time:
+# 2,4ms
+
 import re
 import time
 
 file_path = "./input1"
-req_fields=["byr", "iyr", "eyr", "hgt" , "hcl", "ecl", "pid"]
-                                                                # nine-digit number
-t1 = time.time()
+req_fields=["byr", "iyr", "eyr", "hgt" , "hcl", "ecl", "pid"]                 
+l=[]
+count = 0
+
 class Passport:
     def __init__(self, pw_data):
         self.pp ={}
@@ -16,8 +21,7 @@ class Passport:
         req_field_allpresent = all(field in self.pp for field in req_fields) 
         return req_field_allpresent
 
-l=[]
-count = 0
+t1 = time.time()
 with open(file_path,"r") as f:
     pp_data_all = [string.replace("\n"," ") for string in f.read().split("\n\n") ]
 
@@ -26,6 +30,10 @@ for pp_data in pp_data_all:
 
 for pp in l:   
     if pp.isValid(): count += 1
-      
+
+t2 = time.time()
+print("time =",t2 - t1) 
+    
 print(count)
-print("time =",time.time() - t1) 
+
+#prints:192

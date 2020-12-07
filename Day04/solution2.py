@@ -1,9 +1,15 @@
-#Solution of Day4
+#Solution Part2 of Day4
+
+# Time:
+# 5.5ms
+
 import re
 import time
 
 file_path = "./input1"
 req_fields=["byr", "iyr", "eyr", "hgt" , "hcl", "ecl", "pid"]
+l=[]
+count = 0
 
 regex_fields={  "byr" : "(19[2-9][0-9]|200[0-2])$",                                 # 1920 - 2002
                 "iyr" : "(201[0-9]|2020)$",                                         # 2010 - 2020
@@ -13,8 +19,7 @@ regex_fields={  "byr" : "(19[2-9][0-9]|200[0-2])$",                             
                 "ecl" : "amb|blu|brn|gry|grn|hzl|oth$",                             # one of amb blu brn gry grn hzl oth
                 "pid" : "[0-9]{9}$",                                                # nine-digit number
                 "cid" : ".*"}                                                       # anything
-                                                                                          
-t1 = time.time()
+
 class Passport:
     def __init__(self, pw_data):
         self.pp ={}
@@ -26,15 +31,19 @@ class Passport:
         req_field_allvalid = all(re.match(regex_fields[f_key],f_value) for f_key,f_value in self.pp.items())
         return req_field_allpresent & req_field_allvalid
 
-l=[]
-count = 0
+t1 = time.time()
 with open(file_path,"r") as f:
     pp_data_all = [string.replace("\n"," ") for string in f.read().split("\n\n") ]
 
 for pp_data in pp_data_all:
     l.append(Passport(pp_data))
+
 for pp in l:   
     if pp.isValid(): count += 1
-     
+
+t2 = time.time()
+print("time =",t2 - t1) 
+
 print(count)
-print("time =",time.time() - t1)  
+
+#prints:101
