@@ -1,4 +1,4 @@
-#Solution Part of Day7
+#Solution Part1 of Day7
 
 # Time:
 # checking everthing:
