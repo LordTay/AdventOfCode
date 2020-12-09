@@ -1,14 +1,9 @@
 #Solution Part2 of Day9
 import time
-import solution
+import solution #this runs solution.py
 
 file_path = "./input1"
 
-#int(exec("solution.py").read())
-
-#exec(open("solution.py").read())
-
-#time 4ms with n = 1000
 numbers = solution.numbers
 invalidNumber = solution.invalidNumber
 
